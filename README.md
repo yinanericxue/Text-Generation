@@ -1,13 +1,14 @@
 # Text Generation: Char-Level
+
 # run "TF Dev Cert/NLP/generate_text_char_level.py"
 
-## https://github.com/wangshusen/DeepLearning/blob/master/Slides/9_RNN_5.pdf
+# https://github.com/wangshusen/DeepLearning/blob/master/Slides/9_RNN_5.pdf
 
-## https://juejin.cn/post/6995777526308012069
+# https://juejin.cn/post/6995777526308012069
 
-## https://clownote.github.io/2020/08/20/DeepLearningWithPython/Deep-Learning%20with-Python-ch8_1/
+# https://clownote.github.io/2020/08/20/DeepLearningWithPython/Deep-Learning%20with-Python-ch8_1/
 
-## https://blog.csdn.net/weixin_46489969/article/details/125525879
+# https://blog.csdn.net/weixin_46489969/article/details/125525879
 
 ![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/70d1a826-3d51-4842-89aa-7e0b91cc2fbc)
 
@@ -24,114 +25,61 @@
 # SoftMax Layer: 39 probability values
 # Parameters: (128 W + 1 b) x 39 = 5031
 
-
 # Prediction: probability -> next char,  one-shot by using  Multinomial Distribution. 
-
 
 1 Epoch without GPU:
 ![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/46a412ea-d8e3-43f5-b416-1252df72d133)
 
-
 1 Epoch with GPU:
 ![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/ac726007-f2cf-40f3-8a6a-912e9de540f8)
 
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/e94fd034-8257-40a1-bf32-664c76706eae)
 
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/abf934c8-cc66-438d-8be2-ee0d4e6ee021)
 
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/7584e1ff-4875-498e-b5c0-464506c46b5c)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Bernouli Distribution
-
-
-
+# Binomial Distribution
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/00f06654-b7b4-4f0a-82da-38c6c568db59)
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/c82c9b8b-b6dc-4b0c-987d-e086bf50c8e6)
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/5ba05700-c0e7-4121-bea8-3df8287f9c2b)
 
 
 # Binomial Distribution - flip a coin
 https://www.investopedia.com/terms/b/binomialdistribution.asp
-
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/2c802dee-fd0c-4579-965d-a76948d6bfc3)
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/c2d26261-1188-4f1c-ad47-2afbf2f1276f)
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/4f42bc4f-4eb0-4f46-879d-1a4bdba3ce16)
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/976a0094-4dde-4291-b7d5-9e9c97254a49)
 
 
 # Multinomial Distribution - roll a dice
 https://www.statisticshowto.com/multinomial-distribution/
 https://en.wikipedia.org/wiki/Multinomial_distribution
-
-
-
-
-
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/2ab4627b-b6e8-4406-8a58-1059aa9ede06)
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/94b9c086-157f-4815-86d9-b000bdcb7266)
 
 
 # numpy.random.multinomial
 https://numpy.org/doc/stable/reference/random/generated/numpy.random.multinomial.html
-
-
-
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/481e1452-32bc-4139-86d4-96d1857574e1)
 
 
 # numpy.argmax
 https://numpy.org/doc/stable/reference/generated/numpy.argmax.html
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/6aa4974e-a55a-4565-891e-944cd6460c03)
 
 
 
+# Text Generation: Word-Level
 
+# run "TF Dev Cert/NLP/generate_text_word_level.py"
 
-#### Old
+# https://www.kaggle.com/datasets/aashita/nyt-comments
 
-5000 unique words；
-1 sentence： 500 words，32 values per word
+# https://www.kaggle.com/datasets/aashita/nyt-comments?resource=download
 
-Embedding layer: 5000 x 32 = 160000 parameters
-
-LR Layer: 500x32 + 1 = 16,001 parameters
- 
-Embedding layer: 5000 x 32 = 160000 parameters
-RNN Layer: 32 x ( 32 + 32 + 1 ) = 2,080 parameters, 
-
-Embedding layer: 5000 x 32 = 160000 parameters
-LR Layer: 4 x 32 x ( 32 + 32 + 1 ) = 8,320 parameters
-
-
-
-# CHN
-https://zhuanlan.zhihu.com/p/31656392
-https://blog.csdn.net/newlw/article/details/122546868
-
-
-
-
-#################################################### Example: Word-Level
-https://www.kaggle.com/datasets/aashita/nyt-comments
-https://www.kaggle.com/datasets/aashita/nyt-comments?resource=download
-https://www.kaggle.com/code/shivamb/beginners-guide-to-text-generation-using-lstms
-
-
-
-##### run "TF Dev Cert/NLP/generate_text_word_level.py"
-
-
-
-
+# https://www.kaggle.com/code/shivamb/beginners-guide-to-text-generation-using-lstms
 
 831 headlines with 2421 unique words ( ID: 1 ~ 2421)；
 ID: 0 is reserved, so totally 2422 words;
