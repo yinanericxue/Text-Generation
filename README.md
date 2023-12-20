@@ -1,44 +1,40 @@
+# Text Generation: Char-Level
+# run "TF Dev Cert/NLP/generate_text_char_level.py"
 
-# Char-Level, TF Dev Cert/NLP/generate_text_char_level.py
-# Word-Level, TF Dev Cert/NLP/generate_text_word_level.py
+## https://github.com/wangshusen/DeepLearning/blob/master/Slides/9_RNN_5.pdf
 
-#################################################### Example: Char-Level
+## https://juejin.cn/post/6995777526308012069
 
-https://github.com/wangshusen/DeepLearning/blob/master/Slides/9_RNN_5.pdf
+## https://clownote.github.io/2020/08/20/DeepLearningWithPython/Deep-Learning%20with-Python-ch8_1/
 
-https://juejin.cn/post/6995777526308012069
+## https://blog.csdn.net/weixin_46489969/article/details/125525879
 
-https://clownote.github.io/2020/08/20/DeepLearningWithPython/Deep-Learning%20with-Python-ch8_1/
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/70d1a826-3d51-4842-89aa-7e0b91cc2fbc)
 
-https://blog.csdn.net/weixin_46489969/article/details/125525879
+# Build 371778 samples by using the 1115394 chars in the text
+# 1 Sample:  60 characters -> 1 character
 
+# Input: one-hot encoding (no embedding layer), 39 values [ 0 0 0 0 … 1 .. 0 0 0 ]
 
-##### run "TF Dev Cert/NLP/generate_text_char_level.py"
+# input_shape=(60, 39) # 39 input values for each call and call 60 times - 1 sample
 
+# LSTM Layer: 128 status values ( 128 neurons )
+# Parameters:  (39 W + 128 W + 1b) x 128 x 4 = 86016  # 4 times of the RNN's parameters
 
-
-Build 371778 samples by using the 1115394 chars in the text
-                          feature               label
-1 Sample:  60 characters -> 1 character
-
-Input: one-hot encoding (no embedding layer), 39 values [ 0 0 0 0 … 1 .. 0 0 0 ]
-
-input_shape=(60, 39) # 39 input values for each call and call 60 times - 1 sample
-
-LSTM Layer: 128 status values ( 128 neurons )
-Parameters:  (39 W + 128 W + 1b) x 128 x 4 = 86016  # 4 times of the RNN's parameters
-
-SoftMax Layer: 39 probability values
-Parameters: (128 W + 1 b) x 39 = 5031
+# SoftMax Layer: 39 probability values
+# Parameters: (128 W + 1 b) x 39 = 5031
 
 
-Prediction: probability -> next char,  one-shot by using  Multinomial Distribution. 
+# Prediction: probability -> next char,  one-shot by using  Multinomial Distribution. 
 
 
 1 Epoch without GPU:
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/46a412ea-d8e3-43f5-b416-1252df72d133)
 
 
 1 Epoch with GPU:
+![image](https://github.com/yinanericxue/Text-Generation/assets/102645083/ac726007-f2cf-40f3-8a6a-912e9de540f8)
+
 
 
 
